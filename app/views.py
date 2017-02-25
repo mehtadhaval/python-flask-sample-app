@@ -1,14 +1,21 @@
-from app import app
+from flask_restful import Resource
+
+from app import api
 from app.auth import auth
 
 
-@auth.login_required
-@app.route('/inbound/sms', methods=["POST"])
-def inbound_sms():
-    return ""
+class InboundSMSAPI(Resource):
+    decorators = [auth.login_required]
+
+    def post(self):
+        return {}
 
 
-@auth.login_required
-@app.route('/outbound/sms', methods=["POST"])
-def outbound_sms():
-    return ""
+class OutboundSMSAPI(Resource):
+    decorators = [auth.login_required]
+
+    def post(self):
+        return {}
+
+api.add_resource(InboundSMSAPI, '/inbound/sms')
+api.add_resource(OutboundSMSAPI, '/outbound/sms')
