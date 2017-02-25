@@ -3,6 +3,7 @@
 from flask import Flask
 
 # Initialize the app
+from flask_redis import FlaskRedis
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
@@ -16,6 +17,7 @@ except ImportError:
     pass
 db = SQLAlchemy(app)
 api = Api(app)
+redis_store = FlaskRedis(app)
 
 # Load the views
 from app import views, models

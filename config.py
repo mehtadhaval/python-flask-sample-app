@@ -4,3 +4,4 @@
 DEBUG = False
 SQLALCHEMY_DATABASE_URI = "postgresql://postgres:nopasswordset@localhost/sample_app"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
+REDIS_URL = "redis://user:password@localhost:6379/0"
