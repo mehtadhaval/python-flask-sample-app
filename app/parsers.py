@@ -29,7 +29,7 @@ class CustomArgument(Argument):
         abort(400, error=msg)
 
 
-def get_inbound_parser():
+def get_parser():
     parser = reqparse.RequestParser()
     parser.add_argument(CustomArgument('from', required=True, type=inputs.regex('^[0-9]{6,16}$')))
     parser.add_argument(CustomArgument('to', required=True, type=inputs.regex('^[0-9]{6,16}$')))
