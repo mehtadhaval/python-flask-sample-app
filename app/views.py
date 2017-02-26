@@ -40,8 +40,7 @@ class OutboundSMSAPI(Resource):
     @staticmethod
     def validate_stop(from_number, to_number):
         if redis_store.get(get_redis_key("STOP", from_number, to_number)):
-            abort(400, {"message": "",
-                        "error": "sms from {0} to {1} blocked by STOP request".format(from_number, to_number)})
+            abort(400, message="", error="sms from {0} to {1} blocked by STOP request".format(from_number, to_number))
 
     @staticmethod
     def validate_from_throttle(from_number):
